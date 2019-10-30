@@ -7,7 +7,7 @@
       <div
         :style="{width: normalizedBuffer + '%', backgroundColor: colorComputed}"
         class="va-progress-bar__buffer"
-      />
+      ></div>
       <div v-if="!indeterminate" :style="{width: normalizedValue + '%', backgroundColor: colorComputed}" class="va-progress-bar__overlay">
         <slot v-if="large" />
       </div>
@@ -15,11 +15,11 @@
         <div
           :style="{backgroundColor: colorComputed, animationDirection: this.reverse ? 'reverse' : 'normal'}"
           class="va-progress-bar__overlay__indeterminate-start"
-        />
+        ></div>
         <div
           :style="{backgroundColor: colorComputed, animationDirection: this.reverse ? 'reverse' : 'normal'}"
           class="va-progress-bar__overlay__indeterminate-end"
-        />
+        ></div>
       </template>
     </div>
   </div>
