@@ -191,6 +191,10 @@ const InputContextMixin = makeContextablePropsMixin({
       return []
     },
   },
+  lazyValidation: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const prepareValidations = (messages = [], callArguments = null) =>
@@ -202,6 +206,8 @@ export default {
   name: 'VaInput',
   mixins: [ColorThemeMixin, InputContextMixin],
   components: { VaInputWrapper, VaIcon },
+  props: {
+  },
   mounted () {
     this.adjustHeight()
   },
@@ -222,7 +228,7 @@ export default {
   },
   computed: {
     computedError () {
-      return this.c_error || this.internalError
+      return !this.isFocused ? (this.c_error || this.internalError) : false
     },
     computedErrorMessages () {
       return [...prepareValidations(this.errorMessages), ...this.internalErrorMessages]
